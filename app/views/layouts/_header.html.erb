@@ -1,12 +1,25 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "sample app", '#', id: "logo" %>
+      <%= link_to "Hacker Juice", '#', id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    '#' %></li>
-          <li><%= link_to "Help",    '#' %></li>
-          <li><%= link_to "Sign in", '#' %></li>
+          <li><%= link_to "New", news_index_path %></li>
+          <li><%= link_to "Comments",    '#' %></li>
+          <li><%= link_to "ask", '#' %></li>
+          <li><%= link_to "jobs", '#' %></li>
+          <li><%= link_to "submit", new_news_path %></li>
+          <li>
+
+            <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>. Not you?
+              <%= link_to "Sign out", destroy_user_session_path, :method =>  :delete %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path %>
+            <% end %>
+
+          </li>
+          <!-- <li><%= link_to "Sign up", new_user_registration_path %></li> -->
         </ul>
       </nav>
     </div>

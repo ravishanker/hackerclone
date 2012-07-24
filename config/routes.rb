@@ -1,4 +1,17 @@
 Hackerclone::Application.routes.draw do
+  resources :news
+
+  get "home/index"
+
+  authenticated :user do
+    root :to => 'news#new'
+  end
+
+  root :to => 'home#index'
+  devise_for :users
+
+  #resources :users, :only => [:show, :index]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
