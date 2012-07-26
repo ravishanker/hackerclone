@@ -1,5 +1,5 @@
 Hackerclone::Application.routes.draw do
-  resources :news
+  #resources :news
 
   get "home/index"
 
@@ -7,8 +7,25 @@ Hackerclone::Application.routes.draw do
     root :to => 'news#new'
   end
 
-  root :to => 'home#index'
+
   devise_for :users
+
+  # map.resources :news, :has_many => :comments
+  #   map.resources :news, :has_many => :votes
+  #   map.resources :comments, :has_many => :comments
+  #   map.resources :comments, :has_many => :votes
+
+  resources :news do
+    resources :comments
+    resources :votes
+  end
+
+  resources :comments do
+    resources :comments
+    resources :votes
+  end
+
+  root :to => 'home#index'
 
   #resources :users, :only => [:show, :index]
 

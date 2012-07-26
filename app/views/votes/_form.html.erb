@@ -1,0 +1,18 @@
+<h1>Votes</h1>
+
+<ul id="comments">
+  <% @votes.each do |vote| %>
+    <li><%= vote.vote %></li>
+  <% end %>
+</ul>
+
+<h2>New Vote</h2>
+<% form_for [@votable, Vote.new] do |form| %>
+  <ol class="formList">
+    <li>
+      <%= form.label :vote %>
+      <%= form.text_area :content, :rows => 5 %>
+    </li>
+    <li><%= submit_tag "Add comment" %></li>
+  </ol>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Comments</h1>
+<ul id="comments">
+  <% @commentable.each do |comments| %>
+    <li><%= comments.content %></li>
+  <% end %>
+
+</ul>

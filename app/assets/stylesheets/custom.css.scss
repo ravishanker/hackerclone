@@ -47,6 +47,7 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #999;
+
 }
 
 p {
@@ -55,6 +56,22 @@ p {
 }
 
 /* header */
+//
+//.navbar-inner {
+//  background-color: #ff6600; /* fallback color, place your own */
+//
+//  /* Gradients for modern browsers, replace as you see fit */
+//  background-image: -moz-linear-gradient(top, #ff6600, #ff6666);
+//  background-image: -ms-linear-gradient(top, #ff6600, #ff6666);
+//  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ff6600), to(#ff6666));
+//  background-image: -webkit-linear-gradient(top, #ff6600, #ff6666);
+//  background-image: -o-linear-gradient(top, #ff6600, #ff6666);
+//  background-image: linear-gradient(top, #ff6600, #ff6666);
+//  background-repeat: repeat-x;
+//
+//  /* IE8-9 gradient filter */
+//  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6600', endColorstr='#ff6666', GradientType=0);
+//}
 
 #logo {
   float: left;

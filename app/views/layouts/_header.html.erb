@@ -3,23 +3,26 @@
     <div class="container">
       <%= link_to "Hacker Juice", '#', id: "logo" %>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav pull-left">
           <li><%= link_to "New", news_index_path %></li>
-          <li><%= link_to "Comments",    '#' %></li>
-          <li><%= link_to "ask", '#' %></li>
-          <li><%= link_to "jobs", '#' %></li>
+          <li><%= link_to "Comments",  comments_path %></li>
           <li><%= link_to "submit", new_news_path %></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
           <li>
-
-            <% if user_signed_in? %>
-              Signed in as <%= current_user.email %>. Not you?
-              <%= link_to "Sign out", destroy_user_session_path, :method =>  :delete %>
-            <% else %>
-              <%= link_to "Login", new_user_session_path %>
-            <% end %>
-
+              <%= link_to current_user.email.split('@').first.strip %>
           </li>
-          <!-- <li><%= link_to "Sign up", new_user_registration_path %></li> -->
+          <li>
+              <%= link_to "Logout", destroy_user_session_path, :method =>  :delete %>
+          </li>
+          <% else %>
+          <li>
+              <%= link_to "Login", new_user_session_path %>
+          </li>
+          <% end %>
         </ul>
       </nav>
     </div>
