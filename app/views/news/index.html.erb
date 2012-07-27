@@ -1,34 +1,38 @@
 <h1>Listing news</h1>
 
 <table>
-  <!-- <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Text</th>
-      <th>User</th>
-      <th>Votes count</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr> -->
-
+  
 <% @news.each do |news| %>
   <tr>
-    <td><%= news.id %></td>
-    <td><%= link_to image_tag("grayarrow.gif", alt: "Vote"), '#' %></td>
-    <td><%= link_to news.title, news.url %></td>
-    <!-- <td><%= news.title %></td>
-       <td><%= news.url %></td>
-       <td><%= news.text %></td>
-       <td><%= news.user %></td>
-       <td><%= news.votes_count %></td> -->
-       <td></td>
-       <% if user_signed_in? %>
+    <td align="right" valign="top" class="title"><%= news.id %>.</td>
+    <td>
+      <center>
+        
+        <%= link_to image_tag("grayarrow.gif", alt: "Vote"), news_votes_path(news) , :method => :post, :remote => true, :class => news.id %>
+        <span id="down_4298913"></span>
+      </center>
+    </td>
+    <td class="title"><%= link_to news.title, news.url %><span class="comhead"> (<%= URI.parse(news.url).host %>) </span></td>
+
+    <% if user_signed_in? %>
        <td><%= link_to 'Show', news %>|</td>
        <td><%= link_to 'Edit', edit_news_path(news) %>|</td>
        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>|</td>
-       <% end %>
+    <% end %>
+
   </tr>
+
+  <tr>
+    <td colspan="2"></td>
+    <td class="subtext">
+      <span id="score_4298913">1 point</span> by 
+      <%= link_to news.user  %> 0 minutes ago  | 
+      <%= link_to "discuss", new_news_comment_path(news) %>      
+      <!-- <a href="item?id=4298913">discuss</a> -->
+    </td>
+  </tr>
+
+  
 <% end %>
 </table>
 

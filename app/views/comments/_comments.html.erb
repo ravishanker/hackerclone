@@ -1,0 +1,8 @@
+
+<% if comments.comments %>
+<ul>
+	<%= render :partial => 'comments', :collection => comments.comments %>
+</ul>
+<% end %>
+
+<li><%= comments.content %></li>

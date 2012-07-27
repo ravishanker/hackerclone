@@ -1,3 +1,32 @@
-<h1>Submit Comment</h1>
+<!-- <h1>Submit Comment</h1> -->
+
+<table>
+  
+
+  <tr>
+    <td align="right" valign="top" class="title"><%= @commentable.id %>.</td>
+    <td>
+      <center>
+        <a id="up_4298913" href="vote?for=4298913&amp;dir=up&amp;whence=%6e%65%77%65%73%74"><%= link_to image_tag("grayarrow.gif", alt: "Vote"), '#' %></a>
+        <span id="down_4298913"></span>
+      </center>
+    </td>
+    <td class="title"><%= link_to @commentable.title, @commentable.url %><span class="comhead"> (<%= URI.parse(@commentable.url).host %>) </span></td>
+
+  </tr>
+
+  <tr>
+    <td colspan="2"></td>
+    <td class="subtext">
+      <span id="score_4298913">1 point</span> by 
+      <%= link_to @commentable.user  %> 0 minutes ago  | 
+      <%= link_to "discuss", new_news_comment_path(@commentable) %>      
+      <!-- <a href="item?id=4298913">discuss</a> -->
+    </td>
+  </tr>
+
+</table>
+
+
 
 <%= render 'form' %>

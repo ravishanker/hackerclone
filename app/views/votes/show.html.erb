@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vote:</b>
+  <%= @vote.vote %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_news_vote_path(@vote) %> |
+<%= link_to 'Back', news_vote_path %> 
